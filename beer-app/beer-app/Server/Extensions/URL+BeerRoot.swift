@@ -9,9 +9,14 @@ import Foundation
 
 extension URL {
     
-    static func beer(withPage page: Int, withPerPage perPage: Int) -> URL {
+    static func beers(withPage page: Int, withPerPage perPage: Int) -> URL {
         
         URL(string: "https://api.punkapi.com/v2/beers?page=\(page)&per_page=\(perPage)")!
+    }
+    
+    static func beer(withId id: Int) -> URL {
+        
+        URL(string: "https://api.punkapi.com/v2/beers/\(id)")!
     }
     
 }

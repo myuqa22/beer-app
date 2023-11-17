@@ -1,5 +1,5 @@
 //
-//  BeerService.swift
+//  BeerMockService.swift
 //  beer-app
 //
 //  Created by Privat on 16.11.23.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-class BeerService: BeerServiceProtocol {
+class BeerMockService: BeerServiceProtocol {
     
-    var beerServer: BeerServerProtocol = BeerServer()
+    var beerServer: BeerServerProtocol = BeerMockServer()
     
     func getBeersBy(page: Int, perPage: Int) async throws -> [Beer] {
         

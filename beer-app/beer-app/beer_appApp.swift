@@ -13,8 +13,7 @@ struct beer_appApp: App {
     var body: some Scene {
         
         WindowGroup {
-            ListView(viewModel: ListViewModel(beerService: BeerService()))
-                .environmentObject(Router())
+            BeerTabBarView(beerService: BeerMockService())
         }
     }
     

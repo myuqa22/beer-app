@@ -10,17 +10,26 @@
 		A11022C32B060A43004CFCAD /* beer_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022C22B060A43004CFCAD /* beer_appApp.swift */; };
 		A11022C72B060A44004CFCAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A11022C62B060A44004CFCAD /* Assets.xcassets */; };
 		A11022CA2B060A44004CFCAD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A11022C92B060A44004CFCAD /* Preview Assets.xcassets */; };
-		A11022D42B060E5E004CFCAD /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022D32B060E5E004CFCAD /* ListView.swift */; };
-		A11022D72B060E71004CFCAD /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022D62B060E71004CFCAD /* CellView.swift */; };
+		A11022D42B060E5E004CFCAD /* BeerOverviewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022D32B060E5E004CFCAD /* BeerOverviewListView.swift */; };
+		A11022D72B060E71004CFCAD /* BeerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022D62B060E71004CFCAD /* BeerCellView.swift */; };
 		A11022DA2B060E88004CFCAD /* BeerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022D92B060E88004CFCAD /* BeerModel.swift */; };
 		A11022DF2B0611F3004CFCAD /* BeerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022DE2B0611F3004CFCAD /* BeerService.swift */; };
 		A11022E12B06136C004CFCAD /* BeerServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022E02B06136C004CFCAD /* BeerServer.swift */; };
 		A11022E72B06150A004CFCAD /* URL+BeerRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022E62B06150A004CFCAD /* URL+BeerRoot.swift */; };
-		A11022EA2B061850004CFCAD /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022E92B061850004CFCAD /* ListViewModel.swift */; };
+		A11022EA2B061850004CFCAD /* BeerOverviewListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022E92B061850004CFCAD /* BeerOverviewListViewModel.swift */; };
 		A11022EC2B06196B004CFCAD /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022EB2B06196B004CFCAD /* Router.swift */; };
-		A11022EE2B061A6D004CFCAD /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022ED2B061A6D004CFCAD /* DetailView.swift */; };
+		A11022EE2B061A6D004CFCAD /* BeerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022ED2B061A6D004CFCAD /* BeerDetailView.swift */; };
 		A11022F02B061BB5004CFCAD /* Beer+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022EF2B061BB5004CFCAD /* Beer+Mock.swift */; };
 		A11022F22B061D62004CFCAD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022F12B061D62004CFCAD /* Constants.swift */; };
+		A11022F42B068429004CFCAD /* BeerMockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022F32B068429004CFCAD /* BeerMockService.swift */; };
+		A11022F62B068435004CFCAD /* BeerServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022F52B068435004CFCAD /* BeerServiceProtocol.swift */; };
+		A11022F82B068464004CFCAD /* BeerServerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022F72B068464004CFCAD /* BeerServerProtocol.swift */; };
+		A11022FA2B06848B004CFCAD /* BeerMockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022F92B06848B004CFCAD /* BeerMockServer.swift */; };
+		A11022FD2B0684D1004CFCAD /* MockData.json in Resources */ = {isa = PBXBuildFile; fileRef = A11022FC2B0684D1004CFCAD /* MockData.json */; };
+		A11023002B068788004CFCAD /* BeerTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022FF2B068788004CFCAD /* BeerTabBarView.swift */; };
+		A11023052B068ADF004CFCAD /* SingleMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = A11023042B068ADF004CFCAD /* SingleMockData.json */; };
+		A1B6A6742B069F4F00F70572 /* BeerFavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6A6732B069F4F00F70572 /* BeerFavoriteListView.swift */; };
+		A1B6A6762B069F6400F70572 /* BeerFavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6A6752B069F6400F70572 /* BeerFavoriteViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,17 +37,26 @@
 		A11022C22B060A43004CFCAD /* beer_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = beer_appApp.swift; sourceTree = "<group>"; };
 		A11022C62B060A44004CFCAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A11022C92B060A44004CFCAD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A11022D32B060E5E004CFCAD /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
-		A11022D62B060E71004CFCAD /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		A11022D32B060E5E004CFCAD /* BeerOverviewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerOverviewListView.swift; sourceTree = "<group>"; };
+		A11022D62B060E71004CFCAD /* BeerCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerCellView.swift; sourceTree = "<group>"; };
 		A11022D92B060E88004CFCAD /* BeerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerModel.swift; sourceTree = "<group>"; };
 		A11022DE2B0611F3004CFCAD /* BeerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerService.swift; sourceTree = "<group>"; };
 		A11022E02B06136C004CFCAD /* BeerServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerServer.swift; sourceTree = "<group>"; };
 		A11022E62B06150A004CFCAD /* URL+BeerRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+BeerRoot.swift"; sourceTree = "<group>"; };
-		A11022E92B061850004CFCAD /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		A11022E92B061850004CFCAD /* BeerOverviewListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerOverviewListViewModel.swift; sourceTree = "<group>"; };
 		A11022EB2B06196B004CFCAD /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		A11022ED2B061A6D004CFCAD /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		A11022ED2B061A6D004CFCAD /* BeerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailView.swift; sourceTree = "<group>"; };
 		A11022EF2B061BB5004CFCAD /* Beer+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Beer+Mock.swift"; sourceTree = "<group>"; };
 		A11022F12B061D62004CFCAD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A11022F32B068429004CFCAD /* BeerMockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerMockService.swift; sourceTree = "<group>"; };
+		A11022F52B068435004CFCAD /* BeerServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerServiceProtocol.swift; sourceTree = "<group>"; };
+		A11022F72B068464004CFCAD /* BeerServerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerServerProtocol.swift; sourceTree = "<group>"; };
+		A11022F92B06848B004CFCAD /* BeerMockServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerMockServer.swift; sourceTree = "<group>"; };
+		A11022FC2B0684D1004CFCAD /* MockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockData.json; sourceTree = "<group>"; };
+		A11022FF2B068788004CFCAD /* BeerTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerTabBarView.swift; sourceTree = "<group>"; };
+		A11023042B068ADF004CFCAD /* SingleMockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SingleMockData.json; sourceTree = "<group>"; };
+		A1B6A6732B069F4F00F70572 /* BeerFavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerFavoriteListView.swift; sourceTree = "<group>"; };
+		A1B6A6752B069F6400F70572 /* BeerFavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerFavoriteViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,30 +110,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		A11022D02B060DDC004CFCAD /* List */ = {
+		A11022D02B060DDC004CFCAD /* BeerOverviewList */ = {
 			isa = PBXGroup;
 			children = (
-				A11022D52B060E63004CFCAD /* Cell */,
-				A11022D32B060E5E004CFCAD /* ListView.swift */,
-				A11022E92B061850004CFCAD /* ListViewModel.swift */,
+				A11022D32B060E5E004CFCAD /* BeerOverviewListView.swift */,
+				A11022E92B061850004CFCAD /* BeerOverviewListViewModel.swift */,
 			);
-			path = List;
+			path = BeerOverviewList;
 			sourceTree = "<group>";
 		};
-		A11022D12B060DED004CFCAD /* Detail */ = {
+		A11022D12B060DED004CFCAD /* BeerDetail */ = {
 			isa = PBXGroup;
 			children = (
-				A11022ED2B061A6D004CFCAD /* DetailView.swift */,
+				A11022ED2B061A6D004CFCAD /* BeerDetailView.swift */,
 			);
-			path = Detail;
-			sourceTree = "<group>";
-		};
-		A11022D52B060E63004CFCAD /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				A11022D62B060E71004CFCAD /* CellView.swift */,
-			);
-			path = Cell;
+			path = BeerDetail;
 			sourceTree = "<group>";
 		};
 		A11022D82B060E78004CFCAD /* Model */ = {
@@ -130,8 +139,11 @@
 		A11022DB2B06113D004CFCAD /* Server */ = {
 			isa = PBXGroup;
 			children = (
+				A11022FB2B0684AF004CFCAD /* MockData */,
 				A11022E82B0615AA004CFCAD /* Extensions */,
+				A11022F72B068464004CFCAD /* BeerServerProtocol.swift */,
 				A11022E02B06136C004CFCAD /* BeerServer.swift */,
+				A11022F92B06848B004CFCAD /* BeerMockServer.swift */,
 			);
 			path = Server;
 			sourceTree = "<group>";
@@ -139,8 +151,10 @@
 		A11022DC2B061168004CFCAD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				A11022D02B060DDC004CFCAD /* List */,
-				A11022D12B060DED004CFCAD /* Detail */,
+				A1B6A6772B06A77400F70572 /* BeerLists */,
+				A11023012B0688A2004CFCAD /* BeerCell */,
+				A11022FE2B068778004CFCAD /* BeerTabBar */,
+				A11022D12B060DED004CFCAD /* BeerDetail */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -148,7 +162,9 @@
 		A11022DD2B0611A4004CFCAD /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				A11022F52B068435004CFCAD /* BeerServiceProtocol.swift */,
 				A11022DE2B0611F3004CFCAD /* BeerService.swift */,
+				A11022F32B068429004CFCAD /* BeerMockService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -159,6 +175,49 @@
 				A11022E62B06150A004CFCAD /* URL+BeerRoot.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A11022FB2B0684AF004CFCAD /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				A11022FC2B0684D1004CFCAD /* MockData.json */,
+				A11023042B068ADF004CFCAD /* SingleMockData.json */,
+			);
+			path = MockData;
+			sourceTree = "<group>";
+		};
+		A11022FE2B068778004CFCAD /* BeerTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A11022FF2B068788004CFCAD /* BeerTabBarView.swift */,
+			);
+			path = BeerTabBar;
+			sourceTree = "<group>";
+		};
+		A11023012B0688A2004CFCAD /* BeerCell */ = {
+			isa = PBXGroup;
+			children = (
+				A11022D62B060E71004CFCAD /* BeerCellView.swift */,
+			);
+			path = BeerCell;
+			sourceTree = "<group>";
+		};
+		A1B6A6722B069F3200F70572 /* BeerFavoriteList */ = {
+			isa = PBXGroup;
+			children = (
+				A1B6A6732B069F4F00F70572 /* BeerFavoriteListView.swift */,
+				A1B6A6752B069F6400F70572 /* BeerFavoriteViewModel.swift */,
+			);
+			path = BeerFavoriteList;
+			sourceTree = "<group>";
+		};
+		A1B6A6772B06A77400F70572 /* BeerLists */ = {
+			isa = PBXGroup;
+			children = (
+				A1B6A6722B069F3200F70572 /* BeerFavoriteList */,
+				A11022D02B060DDC004CFCAD /* BeerOverviewList */,
+			);
+			path = BeerLists;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,7 +279,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A11022CA2B060A44004CFCAD /* Preview Assets.xcassets in Resources */,
+				A11023052B068ADF004CFCAD /* SingleMockData.json in Resources */,
 				A11022C72B060A44004CFCAD /* Assets.xcassets in Resources */,
+				A11022FD2B0684D1004CFCAD /* MockData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,18 +292,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A11022D72B060E71004CFCAD /* CellView.swift in Sources */,
+				A11022D72B060E71004CFCAD /* BeerCellView.swift in Sources */,
 				A11022F02B061BB5004CFCAD /* Beer+Mock.swift in Sources */,
+				A1B6A6742B069F4F00F70572 /* BeerFavoriteListView.swift in Sources */,
 				A11022EC2B06196B004CFCAD /* Router.swift in Sources */,
 				A11022C32B060A43004CFCAD /* beer_appApp.swift in Sources */,
 				A11022DA2B060E88004CFCAD /* BeerModel.swift in Sources */,
-				A11022EE2B061A6D004CFCAD /* DetailView.swift in Sources */,
+				A11022EE2B061A6D004CFCAD /* BeerDetailView.swift in Sources */,
 				A11022E12B06136C004CFCAD /* BeerServer.swift in Sources */,
-				A11022EA2B061850004CFCAD /* ListViewModel.swift in Sources */,
-				A11022D42B060E5E004CFCAD /* ListView.swift in Sources */,
+				A11022F82B068464004CFCAD /* BeerServerProtocol.swift in Sources */,
+				A11022EA2B061850004CFCAD /* BeerOverviewListViewModel.swift in Sources */,
+				A11022D42B060E5E004CFCAD /* BeerOverviewListView.swift in Sources */,
 				A11022DF2B0611F3004CFCAD /* BeerService.swift in Sources */,
+				A1B6A6762B069F6400F70572 /* BeerFavoriteViewModel.swift in Sources */,
+				A11023002B068788004CFCAD /* BeerTabBarView.swift in Sources */,
 				A11022E72B06150A004CFCAD /* URL+BeerRoot.swift in Sources */,
+				A11022F62B068435004CFCAD /* BeerServiceProtocol.swift in Sources */,
 				A11022F22B061D62004CFCAD /* Constants.swift in Sources */,
+				A11022FA2B06848B004CFCAD /* BeerMockServer.swift in Sources */,
+				A11022F42B068429004CFCAD /* BeerMockService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

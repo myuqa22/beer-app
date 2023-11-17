@@ -11,7 +11,8 @@ extension Beer {
     
     static var mock: Beer {
         
-        Beer(id: 1, name: "Beer",
+        Beer(id: 1,
+             name: "Beer",
              tagline: "Tagline",
              first_brewed: "FirstBrewed",
              description: "Description",

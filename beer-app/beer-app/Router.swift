@@ -24,7 +24,7 @@ struct AppPathView: View {
     var body: some View {
         switch path {
         case .detail(let beer):
-            DetailView(beer: beer)
+            BeerDetailView(beer: beer)
         }
     }
     
