@@ -29,18 +29,18 @@ Defaults vereinfacht die Verwendung von UserDefaults, um Werte persistent in der
 
 # Wie bin ich an die Aufgabe herangegangen?
 - Punk API Dokumentation gelesen und in Postman getestet
-- Design groß auf Papier skizziert
+- Design grob auf Papier skizziert
 - Core Features umgesetzt
 - Zusätzliche Features umgesetzt
 - Tests geschrieben und Code angepasst
 
 # Welche Entscheidung habe ich getroffen?
 - Welche Daten von der API anzeigen? Bier soll für den für Endnutzer konzipiert werden. Der Endnutzer ist keine Brauer und interessiert sich nur für Biersorten, die er mal probieren möchte.
-- SwiftUI oder UIKit? SwiftUI -> Neuer, einfacher Views zu bauen
-- Welche Architektur? MVVM vertrauter
-- Welches zusätzliches Feature? Biersorten favorisieren und anzeigen
-- Datenbank ja oder nein? Nein, kein Offline Feature Anforderung und es nicht nicht viele Daten. Nur Speicherung von favorisiere Biere in den Defaults.
+- SwiftUI oder UIKit? SwiftUI -> Neuer, einfacher Views zu bauen.
+- Welche Architektur? MVVM vertrauter.
+- Welches zusätzliches Feature? Biersorten favorisieren und in einer Liste anzeigen. Es gibt zusätzlich eine TabView, um zwischen den Listen zu wechseln.
+- Datenbank ja oder nein? Nein, kein Offline Feature Anforderung und es nicht nicht viele Daten. Nur Speicherung der Id von den favorisiere Bieresorten in den Defaults.
 
 # Herausforderungen?
 - Testen der Veränderung der @Published Variablen -> Über Combine auf Änderungen horchen
-- 
+- Navigation -> Gelöst mit NavigationStacks
