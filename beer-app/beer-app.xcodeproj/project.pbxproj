@@ -28,8 +28,11 @@
 		A11022FD2B0684D1004CFCAD /* MockData.json in Resources */ = {isa = PBXBuildFile; fileRef = A11022FC2B0684D1004CFCAD /* MockData.json */; };
 		A11023002B068788004CFCAD /* BeerTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11022FF2B068788004CFCAD /* BeerTabBarView.swift */; };
 		A11023052B068ADF004CFCAD /* SingleMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = A11023042B068ADF004CFCAD /* SingleMockData.json */; };
+		A13169252B08402A003A4018 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = A13169242B08402A003A4018 /* Defaults */; };
 		A1B6A6742B069F4F00F70572 /* BeerFavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6A6732B069F4F00F70572 /* BeerFavoriteListView.swift */; };
 		A1B6A6762B069F6400F70572 /* BeerFavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6A6752B069F6400F70572 /* BeerFavoriteViewModel.swift */; };
+		A1EFD5842B08416600116AE0 /* Defaults+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EFD5832B08416600116AE0 /* Defaults+Keys.swift */; };
+		A1EFD5872B0844C300116AE0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A1EFD5862B0844C300116AE0 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +60,7 @@
 		A11023042B068ADF004CFCAD /* SingleMockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SingleMockData.json; sourceTree = "<group>"; };
 		A1B6A6732B069F4F00F70572 /* BeerFavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerFavoriteListView.swift; sourceTree = "<group>"; };
 		A1B6A6752B069F6400F70572 /* BeerFavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerFavoriteViewModel.swift; sourceTree = "<group>"; };
+		A1EFD5832B08416600116AE0 /* Defaults+Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Defaults+Keys.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1EFD5872B0844C300116AE0 /* Kingfisher in Frameworks */,
+				A13169252B08402A003A4018 /* Defaults in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +99,7 @@
 				A11022D82B060E78004CFCAD /* Model */,
 				A11022DD2B0611A4004CFCAD /* Service */,
 				A11022DB2B06113D004CFCAD /* Server */,
+				A1EFD5822B08413100116AE0 /* Extensions */,
 				A11022C22B060A43004CFCAD /* beer_appApp.swift */,
 				A11022EB2B06196B004CFCAD /* Router.swift */,
 				A11022F12B061D62004CFCAD /* Constants.swift */,
@@ -140,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				A11022FB2B0684AF004CFCAD /* MockData */,
-				A11022E82B0615AA004CFCAD /* Extensions */,
 				A11022F72B068464004CFCAD /* BeerServerProtocol.swift */,
 				A11022E02B06136C004CFCAD /* BeerServer.swift */,
 				A11022F92B06848B004CFCAD /* BeerMockServer.swift */,
@@ -167,14 +173,6 @@
 				A11022F32B068429004CFCAD /* BeerMockService.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		A11022E82B0615AA004CFCAD /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				A11022E62B06150A004CFCAD /* URL+BeerRoot.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A11022FB2B0684AF004CFCAD /* MockData */ = {
@@ -220,6 +218,15 @@
 			path = BeerLists;
 			sourceTree = "<group>";
 		};
+		A1EFD5822B08413100116AE0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A11022E62B06150A004CFCAD /* URL+BeerRoot.swift */,
+				A1EFD5832B08416600116AE0 /* Defaults+Keys.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -236,6 +243,10 @@
 			dependencies = (
 			);
 			name = "beer-app";
+			packageProductDependencies = (
+				A13169242B08402A003A4018 /* Defaults */,
+				A1EFD5862B0844C300116AE0 /* Kingfisher */,
+			);
 			productName = "beer-app";
 			productReference = A11022BF2B060A43004CFCAD /* beer-app.app */;
 			productType = "com.apple.product-type.application";
@@ -264,6 +275,10 @@
 				Base,
 			);
 			mainGroup = A11022B62B060A43004CFCAD;
+			packageReferences = (
+				A13169232B08402A003A4018 /* XCRemoteSwiftPackageReference "Defaults" */,
+				A1EFD5852B0844C300116AE0 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = A11022C02B060A43004CFCAD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -305,6 +320,7 @@
 				A11022D42B060E5E004CFCAD /* BeerOverviewListView.swift in Sources */,
 				A11022DF2B0611F3004CFCAD /* BeerService.swift in Sources */,
 				A1B6A6762B069F6400F70572 /* BeerFavoriteViewModel.swift in Sources */,
+				A1EFD5842B08416600116AE0 /* Defaults+Keys.swift in Sources */,
 				A11023002B068788004CFCAD /* BeerTabBarView.swift in Sources */,
 				A11022E72B06150A004CFCAD /* URL+BeerRoot.swift in Sources */,
 				A11022F62B068435004CFCAD /* BeerServiceProtocol.swift in Sources */,
@@ -511,6 +527,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A13169232B08402A003A4018 /* XCRemoteSwiftPackageReference "Defaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Defaults.git";
+			requirement = {
+				kind = exactVersion;
+				version = 7.3.1;
+			};
+		};
+		A1EFD5852B0844C300116AE0 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = exactVersion;
+				version = 7.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A13169242B08402A003A4018 /* Defaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A13169232B08402A003A4018 /* XCRemoteSwiftPackageReference "Defaults" */;
+			productName = Defaults;
+		};
+		A1EFD5862B0844C300116AE0 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1EFD5852B0844C300116AE0 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A11022B72B060A43004CFCAD /* Project object */;
 }

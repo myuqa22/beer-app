@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Defaults
 
 class BeerFavoriteListViewModel: ObservableObject {
     
@@ -13,7 +14,7 @@ class BeerFavoriteListViewModel: ObservableObject {
     
     let beerService: BeerServiceProtocol
     
-    var favoritedBeerIds = Set<Int>(arrayLiteral: 1, 2, 3, 4, 5, 6)
+    @Default(.favoritedBeer) var favoritedBeer
     
     init(beerService: BeerServiceProtocol) {
         
@@ -29,7 +30,7 @@ class BeerFavoriteListViewModel: ObservableObject {
         switch action {
         case .initialLoad:
             do {
-                for id in favoritedBeerIds {
+                for id in favoritedBeer {
                     if let newBeers = try await beerService.getBeerBy(id: id) {
                         DispatchQueue.main.async {
                             self.favorited.append(newBeers)

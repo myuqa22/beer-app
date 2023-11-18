@@ -20,20 +20,16 @@ struct BeerCellView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                         } placeholder: {
-                            Image("pexel")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .scaledToFill()
-//                            Image(systemName: "photo.fill")
+                            Image(systemName: "photo.fill")
                         }
-                        .frame(width: 50)
+                        .frame(width: 50, height: 100)
                         .padding(.horizontal, 20)
             } else {
-                Image("pexel")
+                Image(systemName: "photo.fill")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .scaledToFit()
-                    .frame(width: 50)
+                    .frame(width: 50, height: 100)
                     .padding(.horizontal, 20)
             }
             

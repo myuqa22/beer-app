@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import Defaults
 
 struct BeerOverviewListView: View {
     
     @EnvironmentObject var router: Router
+    
+    @Default(.favoritedBeer) var favoritedBeer
     
     @ObservedObject var viewModel: BeerOverviewListViewModel
     
@@ -20,20 +23,20 @@ struct BeerOverviewListView: View {
                 // creating items only as needed.
                 List {
                     ForEach(viewModel.beers) { beer in
-                        BeerCellView(beer: beer, favorite: viewModel.favoritedBeerId.contains(beer.id))
+                        BeerCellView(beer: beer, favorite: favoritedBeer.contains(beer.id))
                             .listRowSeparator(.hidden)
                             .listRowBackground(Color.clear)
                             .swipeActions(edge: .trailing) {
                                 Button {
                                     Task {
-                                        if viewModel.favoritedBeerId.contains(beer.id) {
-                                            await viewModel.handleAction(.defavoriteBeer(beer.id))
+                                        if favoritedBeer.contains(beer.id) {
+                                            favoritedBeer.remove(beer.id)
                                         } else {
-                                            await viewModel.handleAction(.favoriteBeer(beer.id))
+                                            favoritedBeer.insert(beer.id)
                                         }
                                     }
                                 } label: {
-                                    if viewModel.favoritedBeerId.contains(beer.id) {
+                                    if favoritedBeer.contains(beer.id) {
                                         Text("❌")
                                     } else {
                                         Text("⭐️")

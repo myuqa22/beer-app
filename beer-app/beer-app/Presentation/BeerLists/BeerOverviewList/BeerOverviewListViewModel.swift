@@ -15,8 +15,7 @@ class BeerOverviewListViewModel: ObservableObject {
     let perPage = Constants.beerPerPage
     
     var page: Int = 1
-    @Published var favoritedBeerId = Set<Int>()
-
+    
     init(beerService: BeerServiceProtocol) {
         
         self.beerService = beerService
@@ -25,8 +24,6 @@ class BeerOverviewListViewModel: ObservableObject {
     enum Action {
         case initialLoad
         case loadNextPage
-        case favoriteBeer(Int)
-        case defavoriteBeer(Int)
     }
     
     func handleAction(_ action: Action) async {
@@ -51,10 +48,6 @@ class BeerOverviewListViewModel: ObservableObject {
             } catch {
                 print(error)
             }
-        case let .favoriteBeer(id):
-            favoritedBeerId.insert(id)
-        case let .defavoriteBeer(id):
-            favoritedBeerId.remove(id)
         }
     }
     
