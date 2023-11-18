@@ -1,5 +1,5 @@
-# beer-app
-Eine Übersicht über Biersorten und wie sie gebraut werden.
+# Beer-App
+Eine Übersicht über Biersorten, die favorisiert werden können.
 
 # Voraussetzungen
 - Xcode 15
