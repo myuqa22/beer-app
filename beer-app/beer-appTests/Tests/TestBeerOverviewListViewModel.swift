@@ -6,8 +6,9 @@
 //
 
 import XCTest
-import Defaults
+
 import Combine
+import Defaults
 
 @testable import beer_app
 

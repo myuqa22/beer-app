@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
-import Kingfisher
+
 import Defaults
+import Kingfisher
 
 struct BeerCellView: View {
     

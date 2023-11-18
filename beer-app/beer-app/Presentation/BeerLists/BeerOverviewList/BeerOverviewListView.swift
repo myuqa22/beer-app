@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+
 import Defaults
 
 struct BeerOverviewListView: View {
