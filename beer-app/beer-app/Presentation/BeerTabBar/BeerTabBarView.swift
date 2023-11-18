@@ -35,10 +35,9 @@ struct BeerTabBarView: View {
                 }
         }
     }
+    
 }
 
-struct BeerTabBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        BeerTabBarView(beerService: BeerMockService())
-    }
+#Preview {
+    BeerTabBarView(beerService: BeerMockService())
 }

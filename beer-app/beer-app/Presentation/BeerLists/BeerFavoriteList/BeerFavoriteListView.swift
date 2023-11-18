@@ -14,6 +14,7 @@ struct BeerFavoriteListView: View {
     @ObservedObject var viewModel: BeerFavoriteListViewModel
     
     var body: some View {
+        
         NavigationStack(path: $router.path) {
             VStack {
                 List {
@@ -38,6 +39,7 @@ struct BeerFavoriteListView: View {
             }
         }
     }
+    
 }
 
 #Preview {
@@ -45,4 +47,5 @@ struct BeerFavoriteListView: View {
         BeerFavoriteListView(viewModel: BeerFavoriteListViewModel(beerService: BeerMockService()))
             .environmentObject(Router())
     }
+    
 }

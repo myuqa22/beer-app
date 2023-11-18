@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct BeerDetailView: View {
     
@@ -14,31 +15,43 @@ struct BeerDetailView: View {
     let beer: Beer
     
     var body: some View {
-
+        
         ZStack(alignment: .topLeading) {
             Button {
                 router.path.remove(at: router.path.count - 1)
             } label: {
                 Image(systemName: "chevron.left")
-                    .tint(.white)
-                    .padding(10)
-                    .background(.ultraThinMaterial)
+                    .tint(.black)
+                    .padding(Constants.paddingSmall)
+                    .background(.ultraThickMaterial)
                     .clipShape(Circle())
             }
             .padding()
-            .zIndex(3)
-            Color.gray.opacity(0.1)
-            ScrollView {
-                    Image("pexel")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .scaledToFill()
-                        .frame(width: UIScreen.main.bounds.width, height: 400)
-                    VStack(alignment: .leading, spacing: 20) {
+            .padding(.top, Constants.customBackButtonTopPadding)
+            .zIndex(Double.infinity)
+            VStack {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: Constants.stackSpacing) {
+                        HStack {
+                            Spacer()
+                            KFImage.url(URL(string: beer.imageUrl)!)
+                                .placeholder({
+                                    Image(systemName: "photo.fill")
+                                })
+                                .loadDiskFileSynchronously()
+                                .cacheMemoryOnly()
+                                .fade(duration: 0.25)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: Constants.detailImageHeight)
+                            Spacer()
+                        }
+                        .padding(.top)
+                        
                         Text(beer.name)
                             .font(.largeTitle)
                             .padding([.horizontal, .top])
-                        Text("First brewed at \(beer.first_brewed)")
+                        Text("First brewed at \(beer.firstBrewed)")
                             .font(.subheadline)
                             .padding([.horizontal])
                         
@@ -57,43 +70,38 @@ struct BeerDetailView: View {
                             ScrollView(.horizontal) {
                                 HStack {
                                     Spacer()
-                                        
-                                    ForEach(beer.food_pairing, id: \.hashValue) { food in
+                                    
+                                    ForEach(beer.foodPairing, id: \.hashValue) { food in
                                         Text(food)
                                             .font(.subheadline)
-                                            .padding(10)
+                                            .padding(Constants.paddingSmall)
                                             .background(.black)
                                             .foregroundColor(.white)
-                                            .cornerRadius(20)
+                                            .cornerRadius(Constants.cornerRadius)
                                     }
                                 }
                             }
                             .scrollIndicators(.hidden)
                         }
                         Spacer()
-                        Text("Contributed by \(beer.contributed_by)")
+                        Text("Contributed by \(beer.contributedBy)")
                             .font(.callout)
                             .foregroundColor(.gray)
                             .padding([.horizontal, .bottom])
                     }
                     .background(.ultraThinMaterial)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                    .padding([.bottom])
+                    .clipShape(RoundedRectangle(cornerRadius: Constants.cornerRadius))
+                    .padding(.vertical)
                 }
+            }
             .navigationBarBackButtonHidden()
-            .foregroundStyle(.white)
-            .background(.gray)
         }
-
     }
+    
 }
 
-struct DetailView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        NavigationStack {
-            BeerDetailView(beer: Beer.mock)
-        }
-       
+#Preview {
+    NavigationStack {
+        BeerDetailView(beer: Beer.mock)
     }
 }

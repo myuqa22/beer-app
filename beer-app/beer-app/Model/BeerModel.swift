@@ -12,13 +12,26 @@ struct Beer: Codable, Identifiable, Hashable {
     let id: Int
     let name: String
     let tagline: String
-    let first_brewed: String
+    let firstBrewed: String
     let description: String
-    let image_url: String
+    let imageUrl: String
     let ingredients: Ingredients
-    let food_pairing: [String]
-    let brewers_tips: String
-    let contributed_by: String
+    let foodPairing: [String]
+    let brewersTips: String
+    let contributedBy: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case tagline
+        case firstBrewed = "first_brewed"
+        case description
+        case imageUrl = "image_url"
+        case ingredients
+        case foodPairing = "food_pairing"
+        case brewersTips = "brewers_tips"
+        case contributedBy = "contributed_by"
+    }
 }
 
 struct Ingredients: Codable, Hashable {

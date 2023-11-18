@@ -12,9 +12,9 @@ class BeerFavoriteListViewModel: ObservableObject {
     
     @Published var favorited = [Beer]()
     
-    let beerService: BeerServiceProtocol
-    
     @Default(.favoritedBeer) var favoritedBeer
+    
+    let beerService: BeerServiceProtocol
     
     init(beerService: BeerServiceProtocol) {
         
@@ -29,6 +29,7 @@ class BeerFavoriteListViewModel: ObservableObject {
         
         switch action {
         case .initialLoad:
+            self.favorited.removeAll()
             do {
                 for id in favoritedBeer {
                     if let newBeers = try await beerService.getBeerBy(id: id) {
@@ -47,4 +48,5 @@ class BeerFavoriteListViewModel: ObservableObject {
             }
         }
     }
+    
 }

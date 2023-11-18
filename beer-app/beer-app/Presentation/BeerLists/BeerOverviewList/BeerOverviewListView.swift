@@ -74,14 +74,11 @@ struct BeerOverviewListView: View {
                 await viewModel.handleAction(.initialLoad)
             }
         }
-        
     }
+    
 }
 
-struct ListView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        BeerOverviewListView(viewModel: BeerOverviewListViewModel(beerService: BeerService()))
-            .environmentObject(Router())
-    }
+#Preview {
+    BeerOverviewListView(viewModel: BeerOverviewListViewModel(beerService: BeerService()))
+        .environmentObject(Router())
 }

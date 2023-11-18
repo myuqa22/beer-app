@@ -38,13 +38,13 @@ class BeerMockServer: BeerServerProtocol {
             let modifiedBeer = Beer(id: id,
                                     name: beer.name + " MOCKED \(id)",
                                     tagline: beer.tagline,
-                                    first_brewed: beer.first_brewed,
+                                    firstBrewed: beer.firstBrewed,
                                     description: beer.description,
-                                    image_url: beer.image_url,
+                                    imageUrl: beer.imageUrl,
                                     ingredients: beer.ingredients,
-                                    food_pairing: beer.food_pairing,
-                                    brewers_tips: beer.brewers_tips,
-                                    contributed_by: beer.contributed_by)
+                                    foodPairing: beer.foodPairing,
+                                    brewersTips: beer.brewersTips,
+                                    contributedBy: beer.contributedBy)
             return modifiedBeer
             
         } catch let error {

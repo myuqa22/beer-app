@@ -6,34 +6,39 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct BeerCellView: View {
     
     let beer: Beer
+    let imageWidth:CGFloat = 50
+    
     var favorite: Bool
     
     var body: some View {
+        
         HStack {
-            if let beerUrl = URL(string: beer.image_url) {
-                AsyncImage(url: beerUrl) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                        } placeholder: {
-                            Image(systemName: "photo.fill")
-                        }
-                        .frame(width: 50, height: 100)
-                        .padding(.horizontal, 20)
+            if let beerUrl = URL(string: beer.imageUrl) {
+                KFImage.url(beerUrl)
+                    .placeholder({
+                        Image(systemName: "photo.fill")
+                    })
+                    .loadDiskFileSynchronously()
+                    .cacheMemoryOnly()
+                    .fade(duration: 0.25)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: imageWidth, height: Constants.beerCellHeight)
+                    .padding(.horizontal, Constants.paddingMedium)
             } else {
                 Image(systemName: "photo.fill")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .scaledToFit()
-                    .frame(width: 50, height: 100)
-                    .padding(.horizontal, 20)
+                    .frame(width: imageWidth, height: Constants.beerCellHeight)
+                    .padding(.horizontal, Constants.paddingMedium)
             }
             
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading) {
                 HStack {
                     Text(beer.name)
                     if favorite {
@@ -49,17 +54,14 @@ struct BeerCellView: View {
             .padding(.vertical, 10)
             Spacer()
         }
-        .background(RoundedRectangle(cornerRadius: 20).stroke().fill(.gray.opacity(0.2)))
+        .background(RoundedRectangle(cornerRadius: Constants.cornerRadius).stroke().fill(.gray.opacity(0.2)))
         .background(.ultraThickMaterial)
-        .cornerRadius(20)
+        .cornerRadius(Constants.cornerRadius)
         .shadow(radius: 0.5)
     }
+    
 }
 
-struct CellView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        
-        BeerCellView(beer: Beer.mock, favorite: false)
-    }
+#Preview {
+    BeerCellView(beer: Beer.mock, favorite: false)
 }

@@ -33,6 +33,7 @@
 		A1B6A6762B069F6400F70572 /* BeerFavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6A6752B069F6400F70572 /* BeerFavoriteViewModel.swift */; };
 		A1EFD5842B08416600116AE0 /* Defaults+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EFD5832B08416600116AE0 /* Defaults+Keys.swift */; };
 		A1EFD5872B0844C300116AE0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A1EFD5862B0844C300116AE0 /* Kingfisher */; };
+		A1EFD5892B084C8700116AE0 /* Image+Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EFD5882B084C8700116AE0 /* Image+Fit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		A1B6A6732B069F4F00F70572 /* BeerFavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerFavoriteListView.swift; sourceTree = "<group>"; };
 		A1B6A6752B069F6400F70572 /* BeerFavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerFavoriteViewModel.swift; sourceTree = "<group>"; };
 		A1EFD5832B08416600116AE0 /* Defaults+Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Defaults+Keys.swift"; sourceTree = "<group>"; };
+		A1EFD5882B084C8700116AE0 /* Image+Fit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Fit.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 			children = (
 				A11022E62B06150A004CFCAD /* URL+BeerRoot.swift */,
 				A1EFD5832B08416600116AE0 /* Defaults+Keys.swift */,
+				A1EFD5882B084C8700116AE0 /* Image+Fit.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				A11022C32B060A43004CFCAD /* beer_appApp.swift in Sources */,
 				A11022DA2B060E88004CFCAD /* BeerModel.swift in Sources */,
 				A11022EE2B061A6D004CFCAD /* BeerDetailView.swift in Sources */,
+				A1EFD5892B084C8700116AE0 /* Image+Fit.swift in Sources */,
 				A11022E12B06136C004CFCAD /* BeerServer.swift in Sources */,
 				A11022F82B068464004CFCAD /* BeerServerProtocol.swift in Sources */,
 				A11022EA2B061850004CFCAD /* BeerOverviewListViewModel.swift in Sources */,

@@ -14,9 +14,9 @@ extension Beer {
         Beer(id: 1,
              name: "Beer",
              tagline: "Tagline",
-             first_brewed: "FirstBrewed",
+             firstBrewed: "FirstBrewed",
              description: "Description",
-             image_url: "https://picsum.photos/200/300",
+             imageUrl: "https://picsum.photos/200/300",
              ingredients: Ingredients(
                 malt: [
                     Ingredient(name: "Ingredient malt 1",
@@ -31,9 +31,9 @@ extension Beer {
                                attribute: nil)
                 ],
                 yeast: "Yeast"),
-             food_pairing: ["Chips"],
-             brewers_tips: "No Tips",
-             contributed_by: "Gerwin Lukman")
+             foodPairing: ["Chips"],
+             brewersTips: "No Tips",
+             contributedBy: "Gerwin Lukman")
     }
     
 }
