@@ -8,7 +8,7 @@ Entwickle eine native iOS App, die eine öffentliche API einer Brauerei ansprich
 - API ansprechen und Daten abfangen
 - Listenansicht von Bierarten
 - Detailseite
-- Human Interface Guidelines beachten (Loading)
+- Human Interface Guidelines beachten (Loading, Error Handling)
 
 # Zusätzliche Features
 - Pagination

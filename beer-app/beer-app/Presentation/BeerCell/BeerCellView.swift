@@ -33,12 +33,14 @@ struct BeerCellView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: imageWidth, height: Constants.beerCellHeight)
                     .padding(.horizontal, Constants.paddingMedium)
+                    .accessibilityLabel(Text("Beer image"))
             } else {
                 Image(systemName: "photo.fill")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: imageWidth, height: Constants.beerCellHeight)
                     .padding(.horizontal, Constants.paddingMedium)
+                    .accessibilityLabel(Text("Beer placeholder image"))
             }
             
             VStack(alignment: .leading) {
@@ -49,6 +51,7 @@ struct BeerCellView: View {
                             .resizable()
                             .frame(width: 20, height: 20)
                             .foregroundColor(.yellow)
+                            .accessibilityLabel(Text("Favorite"))
                     }
                 }
                 .font(.headline)
@@ -63,7 +66,6 @@ struct BeerCellView: View {
         .cardView()
         .swipeActions(edge: .trailing) {
             Button {
-                
                 if favoritedBeer.contains(beer.id) {
                     favoritedBeer.remove(beer.id)
                 } else {
@@ -72,13 +74,20 @@ struct BeerCellView: View {
                 
             } label: {
                 if favoritedBeer.contains(beer.id) {
-                    Text("❌")
+                    Image(systemName: "star.slash")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .tint(.black)
+                        
                 } else {
-                    Text("⭐️")
+                    Image(systemName: "star.fill")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .tint(.yellow)
                 }
-                
             }
             .tint(.clear)
+            .accessibilityLabel(Text(favoritedBeer.contains(beer.id) ? "Defavorite beer" : "Favorite beer"))
         }
         .onTapGesture {
             router.path.append(.detail(beer))

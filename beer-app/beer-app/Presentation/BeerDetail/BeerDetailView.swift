@@ -33,6 +33,7 @@ struct BeerDetailView: View {
             .padding()
             .padding(.top, Constants.customBackButtonTopPadding)
             .zIndex(Double.infinity)
+            .accessibilityLabel(Text("Back button"))
             VStack {
                 ScrollView {
                     VStack(alignment: .leading, spacing: Constants.stackSpacing) {
@@ -73,6 +74,7 @@ struct BeerDetailView: View {
                                         .tint(.black)
                                 }
                             }
+                            .accessibilityLabel(Text(favoritedBeer.contains(beer.id) ? "Favorite beer": "Defavorite Beer"))
                             .padding()
                         }
                         

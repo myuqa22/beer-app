@@ -12,8 +12,6 @@ struct BeerOverviewListView: View {
     
     @EnvironmentObject var router: Router
     
-   
-    
     @ObservedObject var viewModel: BeerOverviewListViewModel
     
     var body: some View {
@@ -51,6 +49,9 @@ struct BeerOverviewListView: View {
             Task {
                 await viewModel.handleAction(.initialLoad)
             }
+        }
+        .alert(item: $viewModel.alert) { alert in
+            Alert(title: Text(alert.text))
         }
     }
     

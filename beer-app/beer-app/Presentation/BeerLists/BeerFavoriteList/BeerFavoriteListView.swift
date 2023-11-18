@@ -24,11 +24,9 @@ struct BeerFavoriteListView: View {
                     Text("To add an beer to the favorite area, please use swipe action.")
                         .font(.subheadline)
                 }
-                
                 if viewModel.isLoading {
                     ProgressView()
                 }
-                
                 List {
                     ForEach(viewModel.favorited, id: \.id) { beer in
                         BeerCellView(beer: beer)

@@ -10,6 +10,7 @@ import Foundation
 class BeerOverviewListViewModel: ObservableObject {
     
     @Published var beers = [Beer]()
+    @Published var alert: AlertMessage?
     
     let beerService: BeerServiceProtocol
     let perPage = Constants.beerPerPage
@@ -36,6 +37,7 @@ class BeerOverviewListViewModel: ObservableObject {
                     self.beers = newBeers
                 }
             } catch {
+                alert = AlertMessage(text: "Failed loading beers")
                 print(error)
             }
         case .loadNextPage:
@@ -46,6 +48,7 @@ class BeerOverviewListViewModel: ObservableObject {
                     self.beers.append(contentsOf: newBeers)
                 }
             } catch {
+                alert = AlertMessage(text: "Failed loading next page")
                 print(error)
             }
         }

@@ -12,6 +12,7 @@ class BeerFavoriteListViewModel: ObservableObject {
     
     @Published var favorited = [Beer]()
     @Published var isLoading = false
+    @Published var alert: AlertMessage?
     
     @Default(.favoritedBeer) var favoritedBeer
     
@@ -48,17 +49,9 @@ class BeerFavoriteListViewModel: ObservableObject {
                     self.favorited = newBeer
                 }
             } catch {
+                alert = AlertMessage(text: "Failed loading favorite beers")
                 print(error)
             }
-        }
-    }
-    
-    func getFavoriteBeer(byId id: Int) async -> Beer? {
-        do {
-            return try await beerService.getBeerBy(id: id)
-        } catch {
-            print(error)
-            return nil
         }
     }
     
