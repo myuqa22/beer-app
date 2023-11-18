@@ -11,6 +11,7 @@ import Defaults
 class BeerFavoriteListViewModel: ObservableObject {
     
     @Published var favorited = [Beer]()
+    @Published var isLoading = false
     
     @Default(.favoritedBeer) var favoritedBeer
     
@@ -22,30 +23,42 @@ class BeerFavoriteListViewModel: ObservableObject {
     }
     
     enum Action {
-        case initialLoad
+        case loadFavoriteBeers
     }
     
     func handleAction(_ action: Action) async {
         
         switch action {
-        case .initialLoad:
-            self.favorited.removeAll()
+        case .loadFavoriteBeers:
+            isLoading = true
+            var newBeer = [Beer]()
             do {
                 for id in favoritedBeer {
                     if let newBeers = try await beerService.getBeerBy(id: id) {
                         DispatchQueue.main.async {
-                            self.favorited.append(newBeers)
+                            newBeer.append(newBeers)
                         }
                     }
                 }
                 DispatchQueue.main.async {
-                    self.favorited.sort { lhs, rhs in
+                    newBeer.sort { lhs, rhs in
                         lhs.name < rhs.name
                     }
+                    self.isLoading = false
+                    self.favorited = newBeer
                 }
             } catch {
                 print(error)
             }
+        }
+    }
+    
+    func getFavoriteBeer(byId id: Int) async -> Beer? {
+        do {
+            return try await beerService.getBeerBy(id: id)
+        } catch {
+            print(error)
+            return nil
         }
     }
     

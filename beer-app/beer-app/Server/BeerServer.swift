@@ -17,10 +17,10 @@ class BeerServer: BeerServerProtocol {
         return decoded
     }
     
-    func fetchBeer(withId id: Int) async throws -> Beer? {
+    func fetchBeer(withId id: Int) async throws -> [Beer] {
         
         let (data, _) = try await URLSession.shared.data(from: URL.beer(withId: id))
-        let decoded = try JSONDecoder().decode(Beer.self, from: data)
+        let decoded = try JSONDecoder().decode([Beer].self, from: data)
         
         return decoded
     }

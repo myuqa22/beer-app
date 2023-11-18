@@ -7,13 +7,16 @@
 
 import SwiftUI
 import Kingfisher
+import Defaults
 
 struct BeerCellView: View {
     
+    @EnvironmentObject var router: Router
+    
+    @Default(.favoritedBeer) var favoritedBeer
+    
     let beer: Beer
     let imageWidth:CGFloat = 50
-    
-    var favorite: Bool
     
     var body: some View {
         
@@ -21,7 +24,7 @@ struct BeerCellView: View {
             if let beerUrl = URL(string: beer.imageUrl) {
                 KFImage.url(beerUrl)
                     .placeholder({
-                        Image(systemName: "photo.fill")
+                        ProgressView()
                     })
                     .loadDiskFileSynchronously()
                     .cacheMemoryOnly()
@@ -41,8 +44,11 @@ struct BeerCellView: View {
             VStack(alignment: .leading) {
                 HStack {
                     Text(beer.name)
-                    if favorite {
-                        Text("⭐️")
+                    if favoritedBeer.contains(beer.id) {
+                        Image(systemName: "star.fill")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(.yellow)
                     }
                 }
                 .font(.headline)
@@ -54,14 +60,33 @@ struct BeerCellView: View {
             .padding(.vertical, 10)
             Spacer()
         }
-        .background(RoundedRectangle(cornerRadius: Constants.cornerRadius).stroke().fill(.gray.opacity(0.2)))
-        .background(.ultraThickMaterial)
-        .cornerRadius(Constants.cornerRadius)
-        .shadow(radius: 0.5)
+        .cardView()
+        .swipeActions(edge: .trailing) {
+            Button {
+                
+                if favoritedBeer.contains(beer.id) {
+                    favoritedBeer.remove(beer.id)
+                } else {
+                    favoritedBeer.insert(beer.id)
+                }
+                
+            } label: {
+                if favoritedBeer.contains(beer.id) {
+                    Text("❌")
+                } else {
+                    Text("⭐️")
+                }
+                
+            }
+            .tint(.clear)
+        }
+        .onTapGesture {
+            router.path.append(.detail(beer))
+        }
     }
     
 }
 
 #Preview {
-    BeerCellView(beer: Beer.mock, favorite: false)
+    BeerCellView(beer: Beer.mock)
 }

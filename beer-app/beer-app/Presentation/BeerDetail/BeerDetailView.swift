@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
+import Defaults
 import Kingfisher
 
 struct BeerDetailView: View {
     
     @EnvironmentObject var router: Router
     
+    @Default(.favoritedBeer) var favoritedBeer
+    
     let beer: Beer
+    let favoriteButtonSize: CGFloat = 30
     
     var body: some View {
         
@@ -32,41 +36,65 @@ struct BeerDetailView: View {
             VStack {
                 ScrollView {
                     VStack(alignment: .leading, spacing: Constants.stackSpacing) {
-                        HStack {
-                            Spacer()
-                            KFImage.url(URL(string: beer.imageUrl)!)
-                                .placeholder({
-                                    Image(systemName: "photo.fill")
-                                })
-                                .loadDiskFileSynchronously()
-                                .cacheMemoryOnly()
-                                .fade(duration: 0.25)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(height: Constants.detailImageHeight)
-                            Spacer()
+                        ZStack(alignment: .topTrailing) {
+                            HStack {
+                                Spacer()
+                                KFImage.url(URL(string: beer.imageUrl)!)
+                                    .placeholder({
+                                        ProgressView()
+                                    })
+                                    .loadDiskFileSynchronously()
+                                    .cacheMemoryOnly()
+                                    .fade(duration: 0.25)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(height: Constants.detailImageHeight)
+                                Spacer()
+                            }
+                            .padding(.top)
+                            
+                            Button {
+                                if favoritedBeer.contains(beer.id) {
+                                    favoritedBeer.remove(beer.id)
+                                } else {
+                                    favoritedBeer.insert(beer.id)
+                                }
+                            } label: {
+                                if favoritedBeer.contains(beer.id) {
+                                    Image(systemName: "star.fill")
+                                        .resizable()
+                                        .frame(width: favoriteButtonSize, height: favoriteButtonSize)
+                                        .tint(.yellow)
+                                } else {
+                                    Image(systemName: "star.slash")
+                                        .resizable()
+                                        .frame(width: favoriteButtonSize, height: favoriteButtonSize)
+                                    
+                                        .tint(.black)
+                                }
+                            }
+                            .padding()
                         }
-                        .padding(.top)
                         
                         Text(beer.name)
                             .font(.largeTitle)
-                            .padding([.horizontal, .top])
+                            .padding(.horizontal, Constants.paddingMedium)
                         Text("First brewed at \(beer.firstBrewed)")
                             .font(.subheadline)
-                            .padding([.horizontal])
+                            .padding([.horizontal], Constants.paddingMedium)
                         
                         VStack(alignment: .leading) {
                             Text("About")
                                 .font(.headline)
-                                .padding(.horizontal)
+                                .padding(.horizontal, Constants.paddingMedium)
                             Text(beer.description)
-                                .padding(.horizontal)
+                                .padding(.horizontal, Constants.paddingMedium)
                         }
                         
                         VStack(alignment: .leading) {
                             Text("Food pairing")
                                 .font(.headline)
-                                .padding(.horizontal)
+                                .padding(.horizontal, Constants.paddingMedium)
                             ScrollView(.horizontal) {
                                 HStack {
                                     Spacer()
@@ -87,15 +115,14 @@ struct BeerDetailView: View {
                         Text("Contributed by \(beer.contributedBy)")
                             .font(.callout)
                             .foregroundColor(.gray)
-                            .padding([.horizontal, .bottom])
+                            .padding([.horizontal, .bottom], Constants.paddingMedium)
                     }
-                    .background(.ultraThinMaterial)
-                    .clipShape(RoundedRectangle(cornerRadius: Constants.cornerRadius))
-                    .padding(.vertical)
                 }
             }
             .navigationBarBackButtonHidden()
         }
+        .cardView()
+        .padding(Constants.paddingMedium)
     }
     
 }

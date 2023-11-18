@@ -12,7 +12,7 @@ struct BeerOverviewListView: View {
     
     @EnvironmentObject var router: Router
     
-    @Default(.favoritedBeer) var favoritedBeer
+   
     
     @ObservedObject var viewModel: BeerOverviewListViewModel
     
@@ -20,34 +20,12 @@ struct BeerOverviewListView: View {
         
         NavigationStack(path: $router.path) {
             VStack {
-                // creating items only as needed.
+                Text("To favorite you can swipe an beer to the left.")
                 List {
                     ForEach(viewModel.beers) { beer in
-                        BeerCellView(beer: beer, favorite: favoritedBeer.contains(beer.id))
+                        BeerCellView(beer: beer)
                             .listRowSeparator(.hidden)
                             .listRowBackground(Color.clear)
-                            .swipeActions(edge: .trailing) {
-                                Button {
-                                    Task {
-                                        if favoritedBeer.contains(beer.id) {
-                                            favoritedBeer.remove(beer.id)
-                                        } else {
-                                            favoritedBeer.insert(beer.id)
-                                        }
-                                    }
-                                } label: {
-                                    if favoritedBeer.contains(beer.id) {
-                                        Text("❌")
-                                    } else {
-                                        Text("⭐️")
-                                    }
-                                    
-                                }
-                                .tint(.clear)
-                            }
-                            .onTapGesture {
-                                router.path.append(.detail(beer))
-                            }
                     }
                     if viewModel.beers.isEmpty {
                         Text("Could not load beer")

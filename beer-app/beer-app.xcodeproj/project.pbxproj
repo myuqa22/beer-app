@@ -34,6 +34,7 @@
 		A1EFD5842B08416600116AE0 /* Defaults+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EFD5832B08416600116AE0 /* Defaults+Keys.swift */; };
 		A1EFD5872B0844C300116AE0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A1EFD5862B0844C300116AE0 /* Kingfisher */; };
 		A1EFD5892B084C8700116AE0 /* Image+Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EFD5882B084C8700116AE0 /* Image+Fit.swift */; };
+		A1EFD58C2B0854D500116AE0 /* View+CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EFD58B2B0854D500116AE0 /* View+CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		A1B6A6752B069F6400F70572 /* BeerFavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerFavoriteViewModel.swift; sourceTree = "<group>"; };
 		A1EFD5832B08416600116AE0 /* Defaults+Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Defaults+Keys.swift"; sourceTree = "<group>"; };
 		A1EFD5882B084C8700116AE0 /* Image+Fit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Fit.swift"; sourceTree = "<group>"; };
+		A1EFD58B2B0854D500116AE0 /* View+CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CardView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 		A11022DC2B061168004CFCAD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A1EFD58A2B0854C500116AE0 /* Extensions */,
 				A1B6A6772B06A77400F70572 /* BeerLists */,
 				A11023012B0688A2004CFCAD /* BeerCell */,
 				A11022FE2B068778004CFCAD /* BeerTabBar */,
@@ -226,6 +229,14 @@
 				A11022E62B06150A004CFCAD /* URL+BeerRoot.swift */,
 				A1EFD5832B08416600116AE0 /* Defaults+Keys.swift */,
 				A1EFD5882B084C8700116AE0 /* Image+Fit.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A1EFD58A2B0854C500116AE0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A1EFD58B2B0854D500116AE0 /* View+CardView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -321,6 +332,7 @@
 				A11022E12B06136C004CFCAD /* BeerServer.swift in Sources */,
 				A11022F82B068464004CFCAD /* BeerServerProtocol.swift in Sources */,
 				A11022EA2B061850004CFCAD /* BeerOverviewListViewModel.swift in Sources */,
+				A1EFD58C2B0854D500116AE0 /* View+CardView.swift in Sources */,
 				A11022D42B060E5E004CFCAD /* BeerOverviewListView.swift in Sources */,
 				A11022DF2B0611F3004CFCAD /* BeerService.swift in Sources */,
 				A1B6A6762B069F6400F70572 /* BeerFavoriteViewModel.swift in Sources */,

@@ -25,7 +25,7 @@ class BeerMockServer: BeerServerProtocol {
         }
     }
     
-    func fetchBeer(withId id: Int) async throws -> Beer? {
+    func fetchBeer(withId id: Int) async throws -> [Beer] {
         
         let decoder = JSONDecoder()
         let path = Bundle.main.path(forResource: "SingleMockData", ofType: "json")
@@ -45,11 +45,11 @@ class BeerMockServer: BeerServerProtocol {
                                     foodPairing: beer.foodPairing,
                                     brewersTips: beer.brewersTips,
                                     contributedBy: beer.contributedBy)
-            return modifiedBeer
+            return [modifiedBeer]
             
         } catch let error {
             print(error)
-            return nil
+            return []
         }
     }
     

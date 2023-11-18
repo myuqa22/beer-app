@@ -13,7 +13,7 @@ struct beer_appApp: App {
     var body: some Scene {
         
         WindowGroup {
-            BeerTabBarView(beerService: BeerMockService())
+            BeerTabBarView(beerService: BeerService())
         }
     }
     

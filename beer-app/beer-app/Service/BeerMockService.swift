@@ -18,6 +18,6 @@ class BeerMockService: BeerServiceProtocol {
     
     func getBeerBy(id: Int) async throws -> Beer? {
         
-        try await beerServer.fetchBeer(withId: id)
+        try await beerServer.fetchBeer(withId: id).first
     }
 }
