@@ -9,7 +9,12 @@ import Foundation
 
 class BeerService: BeerServiceProtocol {
     
-    var beerServer: BeerServerProtocol = BeerServer()
+    var beerServer: BeerServerProtocol
+    
+    init(beerServer: BeerServerProtocol = BeerServer()) {
+        
+        self.beerServer = beerServer
+    }
     
     func getBeersBy(page: Int, perPage: Int) async throws -> [Beer] {
         

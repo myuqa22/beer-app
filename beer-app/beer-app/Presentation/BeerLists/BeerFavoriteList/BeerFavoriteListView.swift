@@ -35,6 +35,9 @@ struct BeerFavoriteListView: View {
                     }
                 }
                 .animation(.easeIn, value: viewModel.favorited)
+                .refreshable {
+                    await viewModel.handleAction(.loadFavoriteBeers(favoritedBeer))
+                }
             }
             .scrollContentBackground(.hidden)
             .listStyle(.plain)
@@ -45,7 +48,7 @@ struct BeerFavoriteListView: View {
         }
         .task {
             for await _ in Defaults.updates(.favoritedBeer) {
-                await viewModel.handleAction(.loadFavoriteBeers)
+                await viewModel.handleAction(.loadFavoriteBeers(favoritedBeer))
             }
         }
     }
@@ -54,7 +57,7 @@ struct BeerFavoriteListView: View {
 
 #Preview {
     NavigationStack {
-        BeerFavoriteListView(viewModel: BeerFavoriteListViewModel(beerService: BeerMockService()))
+        BeerFavoriteListView(viewModel: BeerFavoriteListViewModel(beerService: BeerService(beerServer: BeerMockServer())))
             .environmentObject(Router())
     }
 }

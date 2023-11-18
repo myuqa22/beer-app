@@ -39,5 +39,5 @@ struct BeerTabBarView: View {
 }
 
 #Preview {
-    BeerTabBarView(beerService: BeerMockService())
+    BeerTabBarView(beerService: BeerService(beerServer: BeerMockServer()))
 }

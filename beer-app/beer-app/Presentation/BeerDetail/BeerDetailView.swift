@@ -31,7 +31,6 @@ struct BeerDetailView: View {
                     .clipShape(Circle())
             }
             .padding()
-            .padding(.top, Constants.customBackButtonTopPadding)
             .zIndex(Double.infinity)
             .accessibilityLabel(Text("Back button"))
             VStack {

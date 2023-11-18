@@ -13,9 +13,7 @@ class BeerFavoriteListViewModel: ObservableObject {
     @Published var favorited = [Beer]()
     @Published var isLoading = false
     @Published var alert: AlertMessage?
-    
-    @Default(.favoritedBeer) var favoritedBeer
-    
+        
     let beerService: BeerServiceProtocol
     
     init(beerService: BeerServiceProtocol) {
@@ -24,31 +22,31 @@ class BeerFavoriteListViewModel: ObservableObject {
     }
     
     enum Action {
-        case loadFavoriteBeers
+        case loadFavoriteBeers(Set<Int>)
     }
     
     func handleAction(_ action: Action) async {
         
         switch action {
-        case .loadFavoriteBeers:
-            isLoading = true
-            var newBeer = [Beer]()
+        case let .loadFavoriteBeers(favoritedBeer):
+            DispatchQueue.main.async {
+                self.isLoading = true
+                self.favorited.removeAll()
+            }
             do {
-                for id in favoritedBeer {
+                for id in favoritedBeer.sorted() {
                     if let newBeers = try await beerService.getBeerBy(id: id) {
                         DispatchQueue.main.async {
-                            newBeer.append(newBeers)
+                            self.favorited
+                                .append(newBeers)
                         }
                     }
                 }
                 DispatchQueue.main.async {
-                    newBeer.sort { lhs, rhs in
-                        lhs.name < rhs.name
-                    }
                     self.isLoading = false
-                    self.favorited = newBeer
                 }
             } catch {
+                self.isLoading = false
                 alert = AlertMessage(text: "Failed loading favorite beers")
                 print(error)
             }

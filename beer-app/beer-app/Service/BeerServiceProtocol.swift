@@ -9,7 +9,7 @@ import Foundation
 
 protocol BeerServiceProtocol {
     
-    var beerServer: BeerServerProtocol { get set }
+    var beerServer: BeerServerProtocol { get }
 
     func getBeersBy(page: Int, perPage: Int) async throws -> [Beer]
     func getBeerBy(id: Int) async throws -> Beer?
