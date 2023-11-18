@@ -23,7 +23,6 @@ struct BeerTabBarView: View {
                         Image(systemName: "list.bullet")
                     })
                 }
-            
             BeerFavoriteListView(viewModel: BeerFavoriteListViewModel(beerService: beerService))
                 .environmentObject(Router())
                 .tabItem {

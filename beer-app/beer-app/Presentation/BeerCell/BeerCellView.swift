@@ -16,82 +16,87 @@ struct BeerCellView: View {
     @Default(.favoritedBeer) var favoritedBeer
     
     let beer: Beer
-    let imageWidth:CGFloat = 50
     
     var body: some View {
         
         HStack {
-            if let beerUrl = URL(string: beer.imageUrl) {
-                KFImage.url(beerUrl)
-                    .placeholder({
-                        ProgressView()
-                    })
-                    .loadDiskFileSynchronously()
-                    .cacheMemoryOnly()
-                    .fade(duration: 0.25)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: imageWidth, height: Constants.beerCellHeight)
-                    .padding(.horizontal, Constants.paddingMedium)
-                    .accessibilityLabel(Text("Beer image"))
-            } else {
-                Image(systemName: "photo.fill")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: imageWidth, height: Constants.beerCellHeight)
-                    .padding(.horizontal, Constants.paddingMedium)
-                    .accessibilityLabel(Text("Beer placeholder image"))
-            }
-            
+            teaserImage
             VStack(alignment: .leading) {
-                HStack {
-                    Text(beer.name)
-                    if favoritedBeer.contains(beer.id) {
-                        Image(systemName: "star.fill")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(.yellow)
-                            .accessibilityLabel(Text("Favorite"))
-                    }
-                }
-                .font(.headline)
-                
+                headline
                 Text(beer.description)
                     .font(.subheadline)
                     .lineLimit(3)
             }
-            .padding(.vertical, 10)
+            .padding(.vertical, Constants.paddingSmall)
             Spacer()
         }
         .cardView()
         .swipeActions(edge: .trailing) {
-            Button {
-                if favoritedBeer.contains(beer.id) {
-                    favoritedBeer.remove(beer.id)
-                } else {
-                    favoritedBeer.insert(beer.id)
-                }
-                
-            } label: {
-                if favoritedBeer.contains(beer.id) {
-                    Image(systemName: "star.slash")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                        .tint(.black)
-                        
-                } else {
-                    Image(systemName: "star.fill")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                        .tint(.yellow)
-                }
-            }
-            .tint(.clear)
-            .accessibilityLabel(Text(favoritedBeer.contains(beer.id) ? "Defavorite beer" : "Favorite beer"))
+            swipeActionFavoriteButton
         }
         .onTapGesture {
             router.path.append(.detail(beer))
         }
+    }
+    
+    @ViewBuilder
+    var teaserImage: some View {
+        
+        if let beerUrl = URL(string: beer.imageUrl) {
+            KFImage.url(beerUrl)
+                .placeholder({
+                    ProgressView()
+                })
+                .loadDiskFileSynchronously()
+                .cacheMemoryOnly()
+                .fade(duration: 0.25)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: Constants.teaserImageWidth, height: Constants.beerCellHeight)
+                .padding(.horizontal, Constants.paddingMedium)
+                .accessibilityLabel(Text("Beer image"))
+        } else {
+            Image(systemName: "photo.fill")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: Constants.teaserImageWidth, height: Constants.beerCellHeight)
+                .padding(.horizontal, Constants.paddingMedium)
+                .accessibilityLabel(Text("Beer placeholder image"))
+        }
+    }
+    
+    var headline: some View {
+        
+        HStack {
+            Text(beer.name)
+            if favoritedBeer.contains(beer.id) {
+                Image(systemName: "star.fill")
+                    .resizable()
+                    .frame(width: Constants.iconSizeMedium, height: Constants.iconSizeMedium)
+                    .foregroundColor(.yellow)
+                    .accessibilityLabel(Text("Favorite"))
+            }
+        }
+        .font(.headline)
+    }
+    
+    var swipeActionFavoriteButton: some View {
+        
+        Button {
+            if favoritedBeer.contains(beer.id) {
+                favoritedBeer.remove(beer.id)
+            } else {
+                favoritedBeer.insert(beer.id)
+            }
+        } label: {
+            let isFavorite = favoritedBeer.contains(beer.id)
+            Image(systemName: isFavorite ? "star.slash" : "star.fill")
+                .resizable()
+                .frame(width: Constants.iconSizeMedium, height: Constants.iconSizeMedium)
+                .tint(isFavorite ? .black : .yellow)
+        }
+        .tint(.clear)
+        .accessibilityLabel(Text(favoritedBeer.contains(beer.id) ? "Defavorite beer" : "Favorite beer"))
     }
     
 }

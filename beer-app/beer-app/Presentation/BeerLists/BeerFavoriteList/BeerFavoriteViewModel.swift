@@ -13,7 +13,7 @@ class BeerFavoriteListViewModel: ObservableObject {
     @Published var favorited = [Beer]()
     @Published var isLoading = false
     @Published var alert: AlertMessage?
-        
+    
     let beerService: BeerServiceProtocol
     
     init(beerService: BeerServiceProtocol) {
@@ -22,6 +22,7 @@ class BeerFavoriteListViewModel: ObservableObject {
     }
     
     enum Action {
+        
         case loadFavoriteBeers(Set<Int>)
     }
     

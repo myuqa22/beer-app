@@ -23,6 +23,7 @@ class BeerOverviewListViewModel: ObservableObject {
     }
     
     enum Action {
+        
         case initialLoad
         case loadNextPage
     }

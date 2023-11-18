@@ -57,7 +57,8 @@ struct BeerFavoriteListView: View {
 
 #Preview {
     NavigationStack {
-        BeerFavoriteListView(viewModel: BeerFavoriteListViewModel(beerService: BeerService(beerServer: BeerMockServer())))
+        BeerFavoriteListView(viewModel: BeerFavoriteListViewModel(beerService: 
+                                                                    BeerService(beerServer: BeerMockServer())))
             .environmentObject(Router())
     }
 }
