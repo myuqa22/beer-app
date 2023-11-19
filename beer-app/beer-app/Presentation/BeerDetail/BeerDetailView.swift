@@ -105,7 +105,7 @@ struct BeerDetailView: View {
     
     var beerContent: some View {
         
-        VStack(spacing: Constants.stackSpacing) {
+        VStack(alignment: .leading, spacing: Constants.stackSpacing) {
             Text(beer.name)
                 .font(.largeTitle)
                 .padding(.horizontal, Constants.paddingMedium)
@@ -113,38 +113,35 @@ struct BeerDetailView: View {
                 .font(.subheadline)
                 .padding([.horizontal], Constants.paddingMedium)
             
-            VStack(alignment: .leading) {
-                Text("About")
-                    .font(.headline)
-                    .padding(.horizontal, Constants.paddingMedium)
-                Text(beer.description)
-                    .padding(.horizontal, Constants.paddingMedium)
-            }
-            VStack(alignment: .leading) {
-                Text("Food pairing")
-                    .font(.headline)
-                    .padding(.horizontal, Constants.paddingMedium)
-                ScrollView(.horizontal) {
-                    HStack {
-                        Spacer()
-                        ForEach(beer.foodPairing, id: \.hashValue) { food in
-                            Text(food)
-                                .font(.subheadline)
-                                .padding(Constants.paddingSmall)
-                                .background(.black)
-                                .foregroundColor(.white)
-                                .cornerRadius(Constants.cornerRadius)
-                        }
+            Text("About")
+                .font(.headline)
+                .padding(.horizontal, Constants.paddingMedium)
+            Text(beer.description)
+                .padding(.horizontal, Constants.paddingMedium)
+            
+            Text("Food pairing")
+                .font(.headline)
+                .padding(.horizontal, Constants.paddingMedium)
+            ScrollView(.horizontal) {
+                HStack {
+                    Spacer()
+                    ForEach(beer.foodPairing, id: \.hashValue) { food in
+                        Text(food)
+                            .font(.subheadline)
+                            .padding(Constants.paddingSmall)
+                            .background(.black)
+                            .foregroundColor(.white)
+                            .cornerRadius(Constants.cornerRadius)
                     }
                 }
                 .scrollIndicators(.hidden)
             }
-            Spacer()
             Text("Contributed by \(beer.contributedBy)")
                 .font(.callout)
                 .foregroundColor(.gray)
                 .padding([.horizontal, .bottom], Constants.paddingMedium)
         }
+        .frame(maxWidth: .infinity)
     }
     
 }

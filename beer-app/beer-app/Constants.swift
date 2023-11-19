@@ -21,7 +21,7 @@ struct Constants {
     static let paddingMedium: CGFloat = 20
     static let paddingSmall: CGFloat = 10
     
-    static let stackSpacing: CGFloat = 20
+    static let stackSpacing: CGFloat = 10
     
     static let cornerRadius: CGFloat = 20
     
