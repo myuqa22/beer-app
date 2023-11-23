@@ -42,9 +42,7 @@ struct BeerOverviewListView: View {
                 .navigationTitle("Beer")
             }
             .padding(.horizontal, Constants.paddingSmall)
-            .navigationDestination(for: Router.Path.self) { path in
-                AppPathView(path: path)
-            }
+            .navigationDestination(for: Router.Path.self) { $0 }
         }
         .onAppear {
             Task {

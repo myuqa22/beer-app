@@ -8,11 +8,18 @@
 import Foundation
 
 class BeerServer: BeerServerProtocol {
+    
+    let decoder: JSONDecoder
+    
+    init() {
+        self.decoder = JSONDecoder()
+        self.decoder.keyDecodingStrategy = .convertFromSnakeCase
+    }
    
     func fetchBeers(withPage: Int, withPerPage: Int) async throws -> [Beer] {
         
         let (data, _) = try await URLSession.shared.data(from: URL.beers(withPage: withPage, withPerPage: withPerPage))
-        let decoded = try JSONDecoder().decode([Beer].self, from: data)
+        let decoded = try decoder.decode([Beer].self, from: data)
         
         return decoded
     }
@@ -20,7 +27,7 @@ class BeerServer: BeerServerProtocol {
     func fetchBeer(withId id: Int) async throws -> [Beer] {
         
         let (data, _) = try await URLSession.shared.data(from: URL.beer(withId: id))
-        let decoded = try JSONDecoder().decode([Beer].self, from: data)
+        let decoded = try decoder.decode([Beer].self, from: data)
         
         return decoded
     }

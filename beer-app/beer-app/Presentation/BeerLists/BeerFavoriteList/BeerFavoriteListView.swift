@@ -43,9 +43,7 @@ struct BeerFavoriteListView: View {
             .scrollContentBackground(.hidden)
             .listStyle(.plain)
             .navigationTitle("Favorited")
-            .navigationDestination(for: Router.Path.self) { path in
-                AppPathView(path: path)
-            }
+            .navigationDestination(for: Router.Path.self) { $0 }
         }
         .task {
             for await _ in Defaults.updates(.favoritedBeer) {

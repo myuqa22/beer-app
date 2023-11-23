@@ -9,23 +9,16 @@ import SwiftUI
 
 class Router: ObservableObject {
     
-    enum Path: Hashable {
+    enum Path: Hashable, View {
         case detail(Beer)
-    }
-    
-    @Published var path: [Path] = []
-}
-
-struct AppPathView: View {
-    
-    let path: Router.Path
-    
-    var body: some View {
         
-        switch path {
-        case .detail(let beer):
-            BeerDetailView(beer: beer)
+        var body: some View {
+            switch self {
+            case .detail(let beer):
+                BeerDetailView(beer: beer)
+            }
         }
     }
     
+    @Published var path: [Path] = []
 }

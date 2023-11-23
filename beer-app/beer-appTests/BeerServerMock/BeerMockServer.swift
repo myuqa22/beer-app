@@ -16,8 +16,8 @@ class BeerMockServer: BeerServerProtocol {
         
         let data = mock.data(using: .utf8)
         let beers = try JSONDecoder().decode([Beer].self, from: data!)
-        return beers
         
+        return beers
     }
     
     func fetchBeer(withId id: Int) throws -> [Beer] {
@@ -41,8 +41,6 @@ class BeerMockServer: BeerServerProtocol {
                                 brewersTips: beer.brewersTips,
                                 contributedBy: beer.contributedBy)
         return [modifiedBeer]
-        
-        
     }
     
 }
